@@ -1,0 +1,107 @@
+/* Removing defaults */ 
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box; 
+    font-family: sans-serif;
+}
+
+
+.app {
+    display:flex;
+    justify-content: center; /* center of the page */ 
+    align-items: center; /* items centered within their spans */
+    height:100vh;
+    /* Add a background? */ 
+}
+
+.calculator {
+    background-color: #22252D;
+    width: 100%;
+    max-width: 375px;
+    min-height: 640px;
+    display:flex;
+    flex-direction: column; /* display buttons in columns */
+    border-radius: 1.5rem;
+    overflow: hidden;  /* This clips the overflow so the rest of the ocntent is hidden  */
+}
+
+.display {
+    min-height: 200px;
+    padding: 1.5rem;
+    display: flex;  /* To allow elements to be pushed to the bottom right */
+    justify-content: flex-end;  /* elements are packed flush at the end of the line */
+    align-items: flex-end;
+    color: white;
+    text-align: right;
+    flex: 1 1 0%;
+}
+
+.display .input {
+    font-size: 1.25em;
+    margin-bottom:0.5rem;
+}
+
+.display .output {
+    font-size: 3rem;
+    font-weight: 700;
+    width:100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
+.display .operator {
+    color: #EB6666;  /* Operator of the calculation  */
+}
+
+.display .brackets, .display .percent {
+    color: #26FED7;  /* For brackets and percent symbol  */
+}
+
+.keys {
+    background-color: #292D36;
+    padding: 1.5rem;
+    border-radius: 1.5rem 1.5rem 0 0; /* It is applied to top-lfet and top-right corners */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns of 1 fraction */
+    grid-template-rows: repeat(5, 1fr);  /* Organized in 5 rows  */
+    grid-gap: 1rem; /* for space between boxes */ 
+    box-shadow: 0px -2px 16px rgba(0,0,0,0.2); 
+    }
+
+.keys .key {
+    position: relative;
+    cursor: pointer;
+    
+    display: block;
+    height: 0;
+    padding-top: 100%;  /* calculated as a percentage of the width, so it makes square buttons  */
+    background-color: #4b4f5a;
+    border-radius: 1rem;
+    transition: 0.2s;
+    user-select: none; /* So user cant select text */
+}
+
+.keys .key span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    
+}
+
+.keys .key:hover {
+    box-shadow: inset 0px 0px 8px rgba(0,0,0,0.5);
+}
+
+.keys .key.operator span {
+    color: #EB6666;
+}
+
+.keys .key.action span{
+    color: #26FED7;
+}
